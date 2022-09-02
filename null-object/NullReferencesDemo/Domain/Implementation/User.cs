@@ -36,7 +36,6 @@ namespace NullReferencesDemo.Domain.Implementation
                 return null;
 
             return new Receipt(product.Name, product.Price);
-
         }
     }
 }
