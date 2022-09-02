@@ -27,7 +27,7 @@ namespace NullReferencesDemo.Domain.Implementation
             }
         }
 
-        public Receipt Purchase(IProduct product)
+        public IPurchaseReport Purchase(IProduct product)
         {
 
             MoneyTransaction transaction = this.account.Withdraw(product.Price);

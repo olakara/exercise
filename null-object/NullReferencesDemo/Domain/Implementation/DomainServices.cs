@@ -52,7 +52,7 @@ namespace NullReferencesDemo.Domain.Implementation
             return this.productRepository.GetAll().Select(product => new StockItem(product.Name, product.Price));
         }
 
-        public Receipt Purchase(string username, string itemName)
+        public IPurchaseReport Purchase(string username, string itemName)
         {
 
             IProduct product = this.productRepository.Find(itemName);

@@ -82,7 +82,7 @@ namespace NullReferencesDemo.Application.Implementation
             return this.domainServices.GetAvailableItems();
         }
 
-        public Receipt Purchase(string itemName)
+        public IPurchaseReport Purchase(string itemName)
         {
 
             if (!this.IsUserLoggedIn)
