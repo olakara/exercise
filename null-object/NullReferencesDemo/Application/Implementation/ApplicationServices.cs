@@ -10,11 +10,13 @@ namespace NullReferencesDemo.Application.Implementation
     {
 
         private readonly IDomainServices domainServices;
+        private readonly IPurchaseReportFactory reportFactory;
         private string loggedInUsername;
 
-        public ApplicationServices(IDomainServices domainServices)
+        public ApplicationServices(IDomainServices domainServices, IPurchaseReportFactory reportFactory)
         {
             this.domainServices = domainServices;
+            this.reportFactory = reportFactory;
             this.loggedInUsername = string.Empty;
         }
 
@@ -87,7 +89,7 @@ namespace NullReferencesDemo.Application.Implementation
         {
 
             if (!this.IsUserLoggedIn)
-                return FailedPurchase.Instance;
+                return this.reportFactory.CreateNotSignedIn();
             
             return this.domainServices.Purchase(this.loggedInUsername, itemName);
         
