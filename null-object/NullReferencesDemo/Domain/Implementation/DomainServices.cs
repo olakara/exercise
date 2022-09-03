@@ -4,6 +4,7 @@ using NullReferencesDemo.Presentation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using NullReferencesDemo.Presentation.PurchaseReports;
 
 namespace NullReferencesDemo.Domain.Implementation
 {
@@ -58,12 +59,12 @@ namespace NullReferencesDemo.Domain.Implementation
             IProduct product = this.productRepository.Find(itemName);
 
             if (product == null)
-                return null;
+                return FailedPurchase.Instance;
 
             IUser user = this.userRepository.Find(username);
 
             if (user == null)
-                return null;
+                return FailedPurchase.Instance;
 
             return user.Purchase(product);
         

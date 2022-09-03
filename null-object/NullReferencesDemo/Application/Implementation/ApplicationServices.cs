@@ -2,6 +2,7 @@
 using NullReferencesDemo.Presentation.Interfaces;
 using System;
 using System.Collections.Generic;
+using NullReferencesDemo.Presentation.PurchaseReports;
 
 namespace NullReferencesDemo.Application.Implementation
 {
@@ -86,7 +87,7 @@ namespace NullReferencesDemo.Application.Implementation
         {
 
             if (!this.IsUserLoggedIn)
-                return null;
+                return FailedPurchase.Instance;
             
             return this.domainServices.Purchase(this.loggedInUsername, itemName);
         
